@@ -1,0 +1,89 @@
+/* components.css - componentes */
+
+/* ===================== BOTÕES ===================== */
+button {
+  background-color: var(--primaria);
+  color: var(--neutra1);
+  border: none;
+  padding: var(--space-2) var(--space-3);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover { background-color: var(--secundaria); transform: translateY(-2px); }
+button:focus { outline: 2px solid var(--suporte3); }
+button:disabled { background-color: var(--neutra3); cursor: not-allowed; }
+
+/* ===================== CARDS ===================== */
+.card {
+  background-color: var(--neutra1);
+  border: 1px solid var(--neutra3);
+  border-radius: 8px;
+  padding: var(--space-3);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.2s;
+  margin-bottom: var(--space-3);
+}
+
+.card:hover { transform: translateY(-4px); }
+
+/* ===================== FORMULÁRIOS ===================== */
+input[type=text], input[type=email], input[type=tel], input[type=date], textarea, select {
+  width: 100%;
+  padding: var(--space-1);
+  margin-top: 4px;
+  border: 1px solid var(--neutra3);
+  border-radius: 4px;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--primaria);
+  outline: none;
+}
+
+/* ===================== ALERTS ===================== */
+.alert {
+  padding: var(--space-2) var(--space-3);
+  border-radius: 4px;
+  color: #fff;
+  margin-bottom: var(--space-2);
+}
+
+.alert-success { background-color: var(--suporte2); }
+.alert-error { background-color: var(--suporte1); }
+.alert-warning { background-color: var(--suporte3); }
+.alert-info { background-color: #2196f3; }
+
+/* ===================== BADGES ===================== */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: var(--font-xs);
+  font-weight: bold;
+  background-color: var(--primaria);
+  color: var(--neutra1);
+  margin-right: 4px;
+}
+
+/* ===================== MODAIS SIMPLES ===================== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: var(--neutra1);
+  padding: var(--space-4);
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+

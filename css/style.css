@@ -1,0 +1,153 @@
+/* style.css - layout principal e responsivo */
+
+/* ===================== VARIÁVEIS ===================== */
+:root {
+  /* Paleta de cores */
+  --primaria: #0077b6;
+  --secundaria: #ff6f00;
+  --neutra1: #ffffff;
+  --neutra2: #f6f6f6;
+  --neutra3: #ccc;
+  --suporte1: #e91e63;
+  --suporte2: #4caf50;
+  --suporte3: #ffc107;
+
+  /* Tipografia */
+  --font-xs: 12px;
+  --font-sm: 14px;
+  --font-md: 16px;
+  --font-lg: 20px;
+  --font-xl: 32px;
+
+  /* Espaçamento modular */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+}
+
+/* ===================== RESET BÁSICO ===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===================== BODY ===================== */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: var(--font-md);
+  line-height: 1.5;
+  background-color: var(--neutra2);
+  color: #333;
+}
+
+/* ===================== HEADER ===================== */
+header {
+  background-color: var(--primaria);
+  color: var(--neutra1);
+  padding: var(--space-3);
+  text-align: center;
+  position: relative;
+}
+
+header h1 {
+  font-size: var(--font-xl);
+  margin-bottom: var(--space-2);
+}
+
+/* ===================== NAVIGATION ===================== */
+nav {
+  position: relative;
+}
+
+#menu-toggle {
+  display: none;
+  background: var(--secundaria);
+  color: #fff;
+  border: none;
+  padding: var(--space-1) var(--space-2);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: var(--font-lg);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  color: var(--neutra1);
+  text-decoration: none;
+  font-weight: bold;
+  padding: 4px 8px;
+  transition: background 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: var(--secundaria);
+  border-radius: 4px;
+}
+
+/* ===================== MAIN GRID ===================== */
+main {
+  max-width: 1200px;
+  margin: var(--space-4) auto;
+  padding: var(--space-3);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-3);
+}
+
+/* Seções ocupam toda largura */
+section {
+  grid-column: span 12;
+  margin-bottom: var(--space-4);
+}
+
+/* ===================== IMAGENS ===================== */
+img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin-top: var(--space-2);
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+  background-color: var(--primaria);
+  color: var(--neutra1);
+  text-align: center;
+  padding: var(--space-3);
+}
+
+/* ===================== RESPONSIVIDADE ===================== */
+@media (max-width: 992px) {
+  main { grid-template-columns: repeat(12, 1fr); }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: var(--space-2);
+    display: none;
+  }
+  nav ul.menu-visible {
+    display: flex;
+  }
+
+  #menu-toggle { display: inline-block; }
+}
+
+@media (max-width: 576px) {
+  main { padding: var(--space-2); }
+}
+
+@media (max-width: 375px) {
+  header h1 { font-size: var(--font-lg); }
+}
