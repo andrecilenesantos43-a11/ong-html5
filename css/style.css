@@ -150,4 +150,13 @@ footer {
 
 @media (max-width: 375px) {
   header h1 { font-size: var(--font-lg); }
+/* Destaque visual dos campos inválidos */
+.erro {
+  border: 2px solid red !important;
+  background-color: #ffeaea;
+}
+
+/* Tooltip visual opcional quando o mouse passa sobre o campo */
+input.erro:hover, textarea.erro:hover {
+  cursor: help;
 }
