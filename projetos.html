@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONG Esperança | Projetos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Projetos Sociais</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section aria-labelledby="projetos-ativos">
+      <h2 id="projetos-ativos">Projetos Ativos</h2>
+
+      <article aria-labelledby="sementes">
+        <h3 id="sementes">Projeto Sementes do Futuro</h3>
+        <img src="imagens/Projeto1.jpg" alt="Crianças estudando em sala comunitária">
+        <p>Oferece reforço escolar gratuito para crianças de comunidades carentes.</p>
+      </article>
+
+      <article aria-labelledby="agasalho">
+        <h3 id="agasalho">Campanha do Agasalho</h3>
+        <img src="imagens/voluntario1.jpeg"alt="Voluntários distribuindo agasalhos">
+        <p>Coleta e distribuição de roupas e cobertores durante o inverno.</p>
+      </article>
+    </section>
+    <section aria-labelledby="cadastro-projeto">
+    <h2 id="cadastro-projeto">Cadastro de Novo Projeto</h2>
+
+    <form id="form-cadastro">
+      <label for="nome">Nome do Projeto:</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="email">E-mail de Contato:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="descricao">Descrição do Projeto:</label>
+      <textarea id="descricao" name="descricao" required></textarea>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+  </section>
+</main>
+
+    <section aria-labelledby="ajude">
+      <h2 id="ajude">Como Ajudar</h2>
+      <p>Você pode contribuir tornando-se voluntário ou fazendo uma doação.</p>
+      <ul>
+        <li><a href="cadastro.html">Seja Voluntário</a></li>
+        <li><a href="cadastro.html">Faça uma Doação</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ONG Esperança</p>
+  </footer>
+  <script src="js/app.js"></script>
+<script src="js/spa.js"></script>
+<script src="js/validacao.js"></script>
+</body>
+</html>

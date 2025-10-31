@@ -1,45 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ONG Esperança — Transformando vidas através da solidariedade.">
-    <title>ONG Esperança | SPA Dinâmico</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ONG Esperança — Transformando vidas através da solidariedade.">
+  <title>ONG Esperança | Início</title>
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/components.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-    <header>
-        <h1>ONG Esperança</h1>
-        <nav>
-            <button id="menu-toggle">☰ Menu</button>
-            <ul id="menu" class="menu-hidden">
-                <li><a href="#" data-route="home">Início</a></li>
-                <li><a href="#" data-route="projetos">Projetos</a></li>
-                <li><a href="#" data-route="cadastro">Cadastro</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- HEADER -->
+  <header>
+    <h1>ONG Esperança</h1>
+    <nav>
+      <!-- Botão do hambúrguer -->
+      <button id="menu-toggle">☰ Menu</button>
+      <!-- Menu de links -->
+      <ul id="menu" class="menu-hidden">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="cadastro.html">Cadastro</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main id="spa-content">
-        </main>
+  <!-- MAIN -->
+  <main>
+    <!-- Quem Somos -->
+    <section aria-labelledby="quem-somos" class="card">
+      <h2 id="quem-somos">Quem Somos</h2>
+      <p>A ONG Esperança atua há mais de 10 anos promovendo inclusão social, educação e solidariedade.</p>
+      <img src="imagens/ong1.jpg" alt="Equipe da ONG em ação social">
+    </section>
 
-    <footer>
-        <p>&copy; 2025 ONG Esperança - Todos os direitos reservados.</p>
-    </footer>
+    <!-- Missão, Visão e Valores -->
+    <section aria-labelledby="missao" class="card">
+      <h2 id="missao">Missão, Visão e Valores</h2>
+      <ul>
+        <li><strong>Missão:</strong> Transformar vidas através da empatia e solidariedade.</li>
+        <li><strong>Visão:</strong> Ser referência em ações sociais sustentáveis.</li>
+        <li><strong>Valores:</strong> Transparência, comprometimento e amor ao próximo.</li>
+      </ul>
+    </section>
 
-    <script type="module" src="js/spa.js"></script>
-    <script type="module" src="js/app.js"></script>
-    
-    <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const menu = document.getElementById('menu');
-        menuToggle.addEventListener('click', () => {
-            menu.classList.toggle('menu-hidden');
-            menu.classList.toggle('menu-visible'); // Classe opcional de toggle
-        });
-    </script>
+    <!-- Projetos (Cards) -->
+    <section aria-labelledby="projetos">
+      <h2 id="projetos">Projetos</h2>
+      <div class="card">
+        <h3>Projeto Educação</h3>
+        <p>Oferecemos cursos e oficinas para crianças e jovens.</p>
+        <span class="badge">Novo</span>
+      </div>
+      <div class="card">
+        <h3>Projeto Inclusão</h3>
+        <p>Atividades voltadas para inclusão social e desenvolvimento pessoal.</p>
+        <span class="badge">Destaque</span>
+      </div>
+      <div class="card">
+        <h3>Projeto Saúde</h3>
+        <p>Campanhas de saúde e prevenção para comunidades carentes.</p>
+        <span class="badge">Ativo</span>
+      </div>
+    </section>
+
+    <!-- Contato com formulário -->
+    <section aria-labelledby="contato" class="card">
+      <h2 id="contato">Contato</h2>
+      <form>
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" placeholder="Seu nome">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="seu@email.com">
+
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva sua mensagem"></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 ONG Esperança - Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- JS do menu hambúrguer -->
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('menu-hidden');
+    });
+  </script>
 </body>
+<script src="js/app.js"></script>
+<script src="js/spa.js"></script>
+<script src="js/validacao.js"></script>
 </html>

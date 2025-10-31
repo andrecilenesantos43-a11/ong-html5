@@ -1,6 +1,4 @@
-/* style.css - layout principal e responsivo */
 
-/* ===================== VARIÁVEIS ===================== */
 :root {
   /* Paleta de cores */
   --primaria: #0077b6;
@@ -159,4 +157,31 @@ footer {
 /* Tooltip visual opcional quando o mouse passa sobre o campo */
 input.erro:hover, textarea.erro:hover {
   cursor: help;
+}
+/* --- Validação de Formulário --- */
+.erro {
+  border: 2px solid #b30000 !important;
+  background-color: #fff5f5;
+}
+
+.mensagem-form {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+
+
+/* 1. NOVA REGRA: Estilo para o asterisco (span.erro-asterisco) */
+.erro-asterisco {
+    color: #CC0000; /* Vermelho vivo */
+    font-weight: bold;
+    margin-left: 5px; /* Espaço entre o label e o asterisco */
+    display: inline;
+}
+/* 2. Mantenha a regra de destaque da borda (Verifique se o seu HTML está linkado a este CSS) */
+.campo-invalido {
+    border: 2px solid #CC0000 !important; /* Destaque vermelho forte */
+    background-color: #FFF2F2; 
+    box-shadow: 0 0 5px rgba(204, 0, 0, 0.5); 
 }

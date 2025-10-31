@@ -29,17 +29,27 @@ button:disabled { background-color: var(--neutra3); cursor: not-allowed; }
 .card:hover { transform: translateY(-4px); }
 
 /* ===================== FORMULÁRIOS ===================== */
-input[type=text], input[type=email], input[type=tel], input[type=date], textarea, select {
-  width: 100%;
-  padding: var(--space-1);
-  margin-top: 4px;
-  border: 1px solid var(--neutra3);
-  border-radius: 4px;
+label {
+    display: block; 
+    margin-top: var(--space-2);
+    margin-bottom: 4px;
+    font-weight: bold;
 }
 
+/* 2. Inputs devem ter box-sizing correto para que width: 100% funcione com padding */
+input[type=text], input[type=email], input[type=tel], input[type=date], textarea, select {
+  width: 100%;
+  padding: var(--space-1);
+  margin-top: 4px;
+  border: 1px solid var(--neutra3);
+  border-radius: 4px;
+  box-sizing: border-box; /* <-- ESSENCIAL para o layout não estourar */
+}
+
+/* 3. Estilo de foco (se você quiser manter) */
 input:focus, textarea:focus, select:focus {
-  border-color: var(--primaria);
-  outline: none;
+  border-color: var(--primaria);
+  outline: none;
 }
 
 /* ===================== ALERTS ===================== */
