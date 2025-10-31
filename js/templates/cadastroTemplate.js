@@ -1,4 +1,4 @@
-// js/templates/cadastroTemplate.js
+
 export const cadastroTemplate = `
     <section> 
         <h2>Cadastro de Voluntário / Doador</h2>

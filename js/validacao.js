@@ -1,12 +1,11 @@
 
 /**
- * ARQUIVO: js/validacao.js
+
  * DESCRIÇÃO: Módulo de validação de formulário com máscaras e destaque (borda + asterisco) de erro.
  */
 
 const form = document.getElementById('cadastroForm');
 
-// Lista de todos os campos obrigatórios (IDs do seu HTML)
 const camposObrigatorios = [
     '#nome',
     '#email',
@@ -19,10 +18,10 @@ const camposObrigatorios = [
     '#estado'
 ];
 
-// --- FUNÇÕES DE MÁSCARA (Mantidas do seu código original) ---
+
 
 function aplicarMascaras() {
-    // ... (Manter as funções de máscara para cpf, telefone e cep aqui)
+   
     const cpf = document.getElementById('cpf');
     const telefone = document.getElementById('telefone');
     const cep = document.getElementById('cep');
@@ -55,16 +54,12 @@ function aplicarMascaras() {
     }
 }
 
-// --- FUNÇÕES DE VALIDAÇÃO E ALERTA COM DESTAQUE DUPLO ---
 
-/**
- * Valida o formulário, aplica o destaque (borda e asterisco) e retorna os campos pendentes.
- */
 function validarFormulario() {
     let pendentes = [];
     
     
-    // 1. Limpa todos os destaques/asteriscos antes de começar
+
     document.querySelectorAll('.campo-invalido').forEach(c => c.classList.remove('campo-invalido'));
     document.querySelectorAll('.erro-asterisco').forEach(span => span.remove()); // Remove os asteriscos anteriores
 
@@ -75,13 +70,13 @@ function validarFormulario() {
             const isVazio = campo.value.trim() === '';
             
             if (isVazio) {
-                // *** DUPLO DESTAQUE APLICADO AQUI ***
+              
                 
-                // A) Aplica a borda vermelha
+               
                 campo.classList.add('campo-invalido');
                 pendentes.push(seletor); 
                 
-                // B) Adiciona o asterisco na label (Manipulação do DOM)
+               
                 const label = document.querySelector(`label[for="${campo.id}"]`);
                 if (label) {
                     const asterisco = document.createElement('span');
@@ -91,7 +86,7 @@ function validarFormulario() {
                 }
 
             } else {
-                // Remove o destaque se estiver preenchido
+                
                 campo.classList.remove('campo-invalido');
             }
         }
@@ -100,50 +95,46 @@ function validarFormulario() {
     return pendentes;
 }
 
-/**
- * Lida com a submissão do formulário.
- */
+
 function lidarComEnvio(event) {
     event.preventDefault(); 
 
     const dadosPendentes = validarFormulario();
     
     if (dadosPendentes.length > 0) {
-        // === ALERTA DE DADOS PENDENTES ===
+      
         alert(`🚨 ATENÇÃO: É necessário preencher os campos com o asterisco (*) para prosseguir.`);
         
-        // Foca no primeiro campo inválido  
+      
         const primeiroCampoInvalido = document.querySelector(dadosPendentes[0]);
         if(primeiroCampoInvalido) {
              primeiroCampoInvalido.focus();
         }
 
     } else {
-        // === ALERTA DE SUCESSO (REQUISITO) ===
+        
         alert('✅ Cadastro efetuado com sucesso! Agradecemos sua inscrição.');
         
-        // Limpa formulário e remove destaques/asteriscos
+      
         form.reset();
         document.querySelectorAll('.campo-invalido').forEach(c => c.classList.remove('campo-invalido'));
         document.querySelectorAll('.erro-asterisco').forEach(span => span.remove());
     }
 }
 
-// --- INICIALIZAÇÃO ---
 
 function inicializarCadastro() {
     if (form) {
         form.addEventListener('submit', lidarComEnvio);
         aplicarMascaras();
 
-        // Limpar o destaque da borda ao digitar
         camposObrigatorios.forEach(seletor => {
             const campo = document.querySelector(seletor);
             if (campo) {
                 campo.addEventListener('input', () => {
                     if (campo.value.trim() !== '') {
                         campo.classList.remove('campo-invalido');
-                        // Tenta remover o asterisco associado à label deste campo
+                        
                         const label = document.querySelector(`label[for="${campo.id}"]`);
                         const asterisco = label ? label.querySelector('.erro-asterisco') : null;
                         if (asterisco) {

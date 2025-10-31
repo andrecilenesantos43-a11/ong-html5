@@ -1,4 +1,4 @@
-// js/templates/homeTemplate.js
+
 export const homeTemplate = `
     <section aria-labelledby="quem-somos" class="card">
         <h2 id="quem-somos">Quem Somos</h2>

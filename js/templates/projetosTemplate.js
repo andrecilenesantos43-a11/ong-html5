@@ -1,4 +1,4 @@
-// js/templates/projetosTemplate.js
+
 export const projetosTemplate = `
     <section aria-labelledby="projetos-ativos">
         <h2 id="projetos-ativos">Projetos Ativos</h2>

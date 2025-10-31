@@ -6,37 +6,35 @@
   <meta name="description" content="ONG Esperança — Transformando vidas através da solidariedade.">
   <title>ONG Esperança | Início</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
-  <!-- HEADER -->
   <header>
     <h1>ONG Esperança</h1>
-    <nav>
-      <!-- Botão do hambúrguer -->
-      <button id="menu-toggle">☰ Menu</button>
-      <!-- Menu de links -->
-      <ul id="menu" class="menu-hidden">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
-        <li><a href="cadastro.html">Cadastro</a></li>
+    <nav aria-label="Menu principal de navegação">
+      <button 
+        id="menu-toggle" 
+        aria-expanded="false" 
+        aria-controls="menu">
+        ☰ Menu
+      </button>
+      <ul id="menu" class="menu-hidden" role="menu">
+        <li role="none"><a role="menuitem" href="index.html">Início</a></li>
+        <li role="none"><a role="menuitem" href="projetos.html">Projetos</a></li>
+        <li role="none"><a role="menuitem" href="cadastro.html">Cadastro</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- MAIN -->
-  <main>
-    <!-- Quem Somos -->
+  <main id="conteudo-principal">
     <section aria-labelledby="quem-somos" class="card">
       <h2 id="quem-somos">Quem Somos</h2>
       <p>A ONG Esperança atua há mais de 10 anos promovendo inclusão social, educação e solidariedade.</p>
-      <img src="imagens/ong1.jpg" alt="Equipe da ONG em ação social">
+      <img src="imagens/ong1.jpg" alt="Foto da equipe da ONG, sorrindo e trabalhando juntos em uma ação social.">
     </section>
 
-    <!-- Missão, Visão e Valores -->
     <section aria-labelledby="missao" class="card">
       <h2 id="missao">Missão, Visão e Valores</h2>
       <ul>
@@ -46,62 +44,63 @@
       </ul>
     </section>
 
-    <!-- Projetos (Cards) -->
     <section aria-labelledby="projetos">
       <h2 id="projetos">Projetos</h2>
       <div class="card">
         <h3>Projeto Educação</h3>
         <p>Oferecemos cursos e oficinas para crianças e jovens.</p>
-        <span class="badge">Novo</span>
+        <span class="badge" aria-label="Status: Novo projeto">Novo</span>
       </div>
       <div class="card">
         <h3>Projeto Inclusão</h3>
         <p>Atividades voltadas para inclusão social e desenvolvimento pessoal.</p>
-        <span class="badge">Destaque</span>
+        <span class="badge" aria-label="Status: Projeto em destaque">Destaque</span>
       </div>
       <div class="card">
         <h3>Projeto Saúde</h3>
         <p>Campanhas de saúde e prevenção para comunidades carentes.</p>
-        <span class="badge">Ativo</span>
+        <span class="badge" aria-label="Status: Projeto ativo">Ativo</span>
       </div>
     </section>
 
-    <!-- Contato com formulário -->
     <section aria-labelledby="contato" class="card">
       <h2 id="contato">Contato</h2>
       <form>
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" placeholder="Seu nome">
+        <input type="text" id="nome" name="nome" placeholder="Seu nome" required> 
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="seu@email.com">
+        <input type="email" id="email" name="email" placeholder="seu@email.com" required>
 
         <label for="telefone">Telefone:</label>
         <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
 
         <label for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva sua mensagem"></textarea>
+        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Escreva sua mensagem" required></textarea>
 
         <button type="submit">Enviar</button>
       </form>
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <p>&copy; 2025 ONG Esperança - Todos os direitos reservados.</p>
   </footer>
 
-  <!-- JS do menu hambúrguer -->
   <script>
     const menuToggle = document.getElementById('menu-toggle');
     const menu = document.getElementById('menu');
 
     menuToggle.addEventListener('click', () => {
+      // Atualiza o atributo aria-expanded para leitores de tela
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true' || false;
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      
       menu.classList.toggle('menu-hidden');
     });
   </script>
 </body>
+<header></header>
 <script src="js/app.js"></script>
 <script src="js/spa.js"></script>
 <script src="js/validacao.js"></script>

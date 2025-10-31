@@ -33,18 +33,36 @@
   box-sizing: border-box;
 }
 
+/* ==================================================== */
+/* WCAG: FOCO DE TECLADO OBRIGATÓRIO (2.4.7)            */
+/* Adiciona um contorno visível e de alto contraste.    */
+/* ==================================================== */
+a:focus, 
+button:focus, 
+input:focus, 
+textarea:focus,
+[tabindex]:focus {
+  outline: 3px solid #FFC107; /* Amarelo forte para alto contraste */
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+
 /* ===================== BODY ===================== */
 body {
   font-family: 'Roboto', Arial, sans-serif;
   font-size: var(--font-md);
   line-height: 1.5;
+  
+  /* AJUSTE WCAG CRÍTICO: Troca de cor para garantir contraste 4.5:1 com o fundo #f6f6f6 */
   background-color: var(--neutra2);
-  color: #333;
+  color: #212121; /* Usando cinza escuro para alto contraste */
 }
 
 /* ===================== HEADER ===================== */
 header {
-  background-color: var(--primaria);
+  /* AJUSTE WCAG: Escurecido para garantir contraste com texto branco */
+  background-color: #004c8c; 
   color: var(--neutra1);
   padding: var(--space-3);
   text-align: center;
@@ -62,6 +80,7 @@ nav {
 }
 
 #menu-toggle {
+  /* GARANTIA DE FOCO: Adicionando padding para área de clique */
   display: none;
   background: var(--secundaria);
   color: #fff;
@@ -92,6 +111,13 @@ nav ul li a:hover {
   background-color: var(--secundaria);
   border-radius: 4px;
 }
+/* Foco especial para links no header, garantindo contraste */
+nav ul li a:focus {
+  background-color: #FFC107; 
+  color: #000000;            
+  border-radius: 4px;
+}
+
 
 /* ===================== MAIN GRID ===================== */
 main {
@@ -118,7 +144,8 @@ img {
 
 /* ===================== FOOTER ===================== */
 footer {
-  background-color: var(--primaria);
+  /* AJUSTE WCAG: Escurecido para garantir contraste com texto branco */
+  background-color: #004c8c;
   color: var(--neutra1);
   text-align: center;
   padding: var(--space-3);
@@ -148,6 +175,8 @@ footer {
 
 @media (max-width: 375px) {
   header h1 { font-size: var(--font-lg); }
+}
+
 /* Destaque visual dos campos inválidos */
 .erro {
   border: 2px solid red !important;
@@ -170,6 +199,7 @@ input.erro:hover, textarea.erro:hover {
   border-radius: 6px;
   font-weight: bold;
   transition: all 0.3s ease;
+}
 
 
 /* 1. NOVA REGRA: Estilo para o asterisco (span.erro-asterisco) */
@@ -184,4 +214,58 @@ input.erro:hover, textarea.erro:hover {
     border: 2px solid #CC0000 !important; /* Destaque vermelho forte */
     background-color: #FFF2F2; 
     box-shadow: 0 0 5px rgba(204, 0, 0, 0.5); 
+}
+
+/* ======================================================= */
+/* ENTREGA IV: ACESSIBILIDADE - MODO ESCURO (WCAG 2.1 AA) */
+/* Regras ativadas se o usuário configurar o modo escuro. */
+/* ======================================================= */
+
+@media (prefers-color-scheme: dark) {
+    /* VARIÁVEIS DO MODO ESCURO */
+    :root {
+        --dark-bg: #121212;
+        --dark-surface: #1E1E1E;
+        --dark-text: #E0E0E0;
+    }
+
+    /* BODY BASE */
+    body {
+        background-color: var(--dark-bg);
+        color: var(--dark-text); 
+    }
+
+    /* HEADER & FOOTER */
+    header, footer {
+        background-color: var(--dark-surface);
+        color: var(--dark-text);
+        border-bottom: 1px solid #333;
+    }
+    
+    /* TÍTULO H1 */
+    header h1 {
+        color: var(--dark-text);
+    }
+
+    /* LINKS DE NAVEGAÇÃO */
+    nav ul li a {
+        color: #90CAF9; /* Azul claro para links */
+    }
+
+    /* CARDS */
+    .card {
+        background-color: var(--dark-surface);
+        border: 1px solid #333;
+        box-shadow: none;
+    }
+    
+    /* FOCO no Modo Escuro */
+    a:focus, button:focus, input:focus, textarea:focus, [tabindex]:focus {
+        outline-color: #ff9800; /* Laranja forte */
+    }
+
+    /* IMAGENS (Suaviza imagens muito brilhantes) */
+    img {
+        filter: brightness(0.85); 
+    }
 }
